@@ -1,44 +1,42 @@
 buildscript {
-	repositories {
-		google()
-		mavenCentral()
-	}
+    repositories {
+        google()
+        mavenCentral()
+    }
 
-	dependencies {
-		classpath "com.android.tools.build:gradle:$tools_version"
-	}
+    dependencies {
+        classpath "com.android.tools.build:gradle:$tools_version"
+    }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
-	namespace 'de.markusfisch.android.barcodescannerview'
-	compileSdkVersion sdk_version
+    namespace 'de.philippdormann.android.barcodescannerview'
+    compileSdkVersion sdk_version
 
-	defaultConfig {
-		minSdkVersion 9
-		targetSdkVersion sdk_version
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion sdk_version
+    }
 
-		versionCode 23
-		versionName '1.2.0'
-	}
-
-	dependencies {
-		api 'com.github.markusfisch:CameraView:1.9.1'
-		api 'com.github.markusfisch:zxing-cpp:v1.4.0.4'
-	}
+    dependencies {
+        api 'com.github.markusfisch:CameraView:1.9.1'
+        api 'com.github.markusfisch:zxing-cpp:v1.4.0.4'
+    }
 }
 
 afterEvaluate {
-	publishing {
-		publications {
-			release(MavenPublication) {
-				from components.release
-				groupId = 'com.github.markusfisch'
-				artifactId = 'barcodescannerview'
-				version = '1.0.0'
-			}
-		}
-	}
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.philippdormann'
+                artifactId = 'barcodescannerview'
+                version = '1.0.0'
+            }
+        }
+    }
 }

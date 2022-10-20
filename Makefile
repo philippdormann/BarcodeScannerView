@@ -1,4 +1,4 @@
-PACKAGE = de.markusfisch.android.barcodescannerviewdemo
+PACKAGE = de.philippdormann.android.barcodescannerviewdemo
 
 all: debug install start
 

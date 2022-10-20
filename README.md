@@ -28,7 +28,7 @@ Then add the dependency in your app/build.gradle:
 
 ```groovy
 dependencies {
-	implementation 'com.github.markusfisch:BarcodeScannerView:1.1.0'
+	implementation 'com.github.philippdormann:BarcodeScannerView:1.1.0'
 }
 ```
 
@@ -74,7 +74,7 @@ Add it to a layout:
 Or create it programmatically:
 
 ```java
-import de.markusfisch.android.barcodescanerview.widget.BarcodeScannerView;
+import de.philippdormann.android.barcodescanerview.widget.BarcodeScannerView;
 
 BarcodeScannerView scannerView = new BarcodeScannerView(context);
 ```
