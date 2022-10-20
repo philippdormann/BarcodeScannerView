@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
-    namespace 'de.markusfisch.android.barcodescannerview'
+    namespace 'de.philippdormann.android.barcodescannerview'
     compileSdkVersion sdk_version
 
     defaultConfig {
@@ -33,7 +33,7 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.markusfisch'
+                groupId = 'com.github.philippdormann'
                 artifactId = 'barcodescannerview'
                 version = '1.0.0'
             }

@@ -1,4 +1,4 @@
-package de.markusfisch.android.barcodescannerviewdemo.activity
+package de.philippdormann.android.barcodescannerviewdemo.activity
 
 import android.Manifest
 import android.app.Activity
@@ -8,9 +8,9 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
-import de.markusfisch.android.barcodescannerview.widget.BarcodeScannerView
-import de.markusfisch.android.barcodescannerview.widget.BarcodeScannerView.OnBarcodeListener
-import de.markusfisch.android.barcodescannerviewdemo.R
+import de.philippdormann.android.barcodescannerviewdemo.R
+import de.philippdormann.android.barcodescannerview.widget.BarcodeScannerView
+import de.philippdormann.android.barcodescannerview.widget.BarcodeScannerView.OnBarcodeListener
 import de.markusfisch.android.zxingcpp.ZxingCpp
 
 class MainActivity : Activity() {
@@ -39,11 +39,11 @@ class MainActivity : Activity() {
         val textView = findViewById<TextView>(R.id.text)
         scannerView = findViewById(R.id.scanner)
         scannerView?.setOnBarcodeListener(object : OnBarcodeListener {
-            override fun onBarcodeRead(result: ZxingCpp.Result) {
+            override fun onBarcodeRead(result: ZxingCpp.Result): Boolean {
                 textView.post {
                     textView.text = result.text
-                    Toast.makeText(applicationContext, result.text, Toast.LENGTH_SHORT).show()
                 }
+                return true
             }
         })
     }

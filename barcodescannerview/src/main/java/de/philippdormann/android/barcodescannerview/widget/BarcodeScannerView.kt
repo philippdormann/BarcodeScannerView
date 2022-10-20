@@ -1,4 +1,4 @@
-package de.markusfisch.android.barcodescannerview.widget
+package de.philippdormann.android.barcodescannerview.widget
 
 import android.content.Context
 import android.graphics.Rect
@@ -10,7 +10,7 @@ import de.markusfisch.android.zxingcpp.ZxingCpp.readByteArray
 
 class BarcodeScannerView : CameraView {
     interface OnBarcodeListener {
-        fun onBarcodeRead(result: ZxingCpp.Result)
+        fun onBarcodeRead(result: ZxingCpp.Result): Boolean
     }
 
     val formats: HashSet<ZxingCpp.Format> = HashSet()
@@ -90,8 +90,7 @@ class BarcodeScannerView : CameraView {
                     if (onBarcodeListener == null) {
                         return@setPreviewCallback
                     } else {
-                        onBarcodeListener!!.onBarcodeRead(result)
-                        decoding = false
+                        decoding = onBarcodeListener!!.onBarcodeRead(result)
                     }
                 }
             }
